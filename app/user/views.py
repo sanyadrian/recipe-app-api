@@ -6,5 +6,5 @@ from user.serializers import UserSerializer
 
 
 class CreateUserView(generics.CreateAPIView):
-    serializer_cllass = UserSerializer
+    serializer_class = UserSerializer
     
