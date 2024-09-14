@@ -298,7 +298,7 @@ class PrivateRecipeApiTests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertIn(ingredient2, recipe.ingredients.all())
         self.assertNotIn(ingredient1, recipe.ingredients.all())
-    
+
     def test_clear_recipe_ingredients(self):
         ingredient = Ingredient.objects.create(user=self.user, name="Garlic")
         recipe = create_recipe(user=self.user)
