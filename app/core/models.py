@@ -1,7 +1,7 @@
 """
 Database models.
 """
-from typing import Any
+# from typing import Any
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import (
@@ -41,6 +41,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     objects = UserManager()
     USERNAME_FIELD = "email"
+
 
 class Recipe(models.Model):
     """Recipe object."""

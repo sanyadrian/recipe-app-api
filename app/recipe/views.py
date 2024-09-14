@@ -1,4 +1,4 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 
 from rest_framework import viewsets, mixins
 from rest_framework.authentication import TokenAuthentication
@@ -21,19 +21,17 @@ class RecipeViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):
         if self.action == "list":
             return serializers.RecipeSerializer
-        
         return self.serializer_class
-    
+
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-    
+
 
 class TagViewSet(
     mixins.DestroyModelMixin,
-    mixins.UpdateModelMixin, 
-    mixins.ListModelMixin, 
+    mixins.UpdateModelMixin,
+    mixins.ListModelMixin,
     viewsets.GenericViewSet):
-    """Manage tags in the database."""
     serializer_class = serializers.TagSerializer
     queryset = Tag.objects.all()
     authentication_classes = [TokenAuthentication]

@@ -58,9 +58,8 @@ class ModelTests(TestCase):
             description="Sample recipe description"
         )
         self.assertEqual(str(recipe), recipe.title)
-    
+
     def test_create_tag(self):
         user = create_user()
         tag = models.Tag.objects.create(user=user, name="Tag1")
         self.assertEqual(str(tag), tag.name)
-    
