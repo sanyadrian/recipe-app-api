@@ -293,7 +293,7 @@ class PrivateRecipeApiTests(TestCase):
         recipe.ingredients.add(ingredient1)
         ingredient2 = Ingredient.objects.create(user=self.user, name="Chili")
         url = detail_url(recipe.id)
-        payload = {"ingredient": [{"name": "Chili"}]}
+        payload = {"ingredients": [{"name": "Chili"}]}
         res = self.client.patch(url, payload, format="json")
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertIn(ingredient2, recipe.ingredients.all())
