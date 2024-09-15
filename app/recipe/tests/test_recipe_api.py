@@ -333,7 +333,7 @@ class ImageUploadTests(TestCase):
         self.recipe.image.delete()
 
     def test_upload_image(self):
-        url = image_upload_url(self.rcipe.id)
+        url = image_upload_url(self.recipe.id)
         with tempfile.NamedTemporaryFile(suffix=".jpg") as image_file:
             img = Image.new("RGB", (10, 10))
             img.save(image_file, format="JPEG")
@@ -343,7 +343,7 @@ class ImageUploadTests(TestCase):
         self.recipe.refresh_from_db()
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertIn("image", res.data)
-        self.assrtTrue(os.path.exists(self.recipe.image.path))
+        self.assertTrue(os.path.exists(self.recipe.image.path))
 
     def test_upload_image_bad_request(self):
         url = image_upload_url(self.recipe.id)
