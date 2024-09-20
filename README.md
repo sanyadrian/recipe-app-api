@@ -33,7 +33,7 @@ Setup
 Clone this repository:
 
 ```bash
-git clone https://github.com/your-username/recipe-app-api.git
+git clone https://github.com/sanyadrian/recipe-app-api.git
 cd recipe-app-api
 docker-compose up --build
 ```
